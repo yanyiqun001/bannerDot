@@ -27,11 +27,11 @@
         />
 ```      
 
- selectedRaduis：选中圆半径
+ selectedRaduis：起始圆半径
  
  unSelectedRaduis：背景圆半径
  
- selectedColor：选中圆颜色
+ selectedColor：起始圆颜色
  
  unSelectedColor：背景圆颜色 
  

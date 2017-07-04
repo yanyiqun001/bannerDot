@@ -32,22 +32,22 @@ public class BezierBannerDot extends View implements ViewPager.OnPageChangeListe
     private int mUnSelectedColor;
     //圆点之间距离
     private float distance = 80;
-    //被选中圆初始半径
+    //起始圆初始半径
     private float mRadius = 30;
-    //被选中圆变化半径
+    //起始圆变化半径
     private float mChangeRadius;
     //背景圆初始半径
     private float mNomarlRadius = 20;
     //背景圆变化半径 背景圆都用这个
     private float mChangeBgRadius;
-    //被选中圆辅助圆变化半径
+    //起始圆辅助圆变化半径
     private float mSupportChangeRadius;
     //将要到达位置的背景圆的辅助圆变化半径
     private float mSupport_Next_ChangeRadius;
-    //被选中圆圆心坐标
+    //起始圆圆心坐标
     float mCenterPointX;
     float mCenterPointY;
-    //被选中圆辅助圆圆心坐标
+    //起始圆辅助圆圆心坐标
     float mSupportCircleX;
     float mSupportCircleY;
     //当前背景圆圆心坐标
@@ -245,13 +245,13 @@ public class BezierBannerDot extends View implements ViewPager.OnPageChangeListe
         //使用一个插值器使圆的大小变化两边慢中间快
         float mRadiusProgress = accelerateinterpolator.getInterpolation(mOriginProgress);
         //----------------------选中圆--------------------------------
-        //选中圆圆心
+        //起始圆圆心
         mCenterPointX = getValue(getCenterPointAt(mSelectedIndex), getCenterPointAt(mSelectedIndex + 1) - mRadius, MOVE_STEP_TWO);
         mCenterPointY = mRadius;
-        //选中圆半径
+        //起始圆半径
         mChangeRadius = getValue(mRadius, 0, mRadiusProgress);
 
-        //起点与选中圆圆心间的角度
+        //起点与起始圆圆心间的角度
         double radian = Math.toRadians(getValue(45, 0, MOVE_STEP_ONE));
         //X轴距离圆心距离
         float mX = (float) (Math.sin(radian) * mChangeRadius);
@@ -292,13 +292,13 @@ public class BezierBannerDot extends View implements ViewPager.OnPageChangeListe
         mPath.lineTo(mStartX, mStartY);
 
         //----------------------背景圆反方向移动--------------------------------
-        //背景圆圆心
+        //起始圆圆心
         mbgNextPointX = getValue(getCenterPointAt(mSelectedIndex + 1), getCenterPointAt(mSelectedIndex) + mNomarlRadius, MOVE_STEP_TWO);
         mbgNextPointY = mRadius;
-        //背景圆半径
+        //起始圆半径
         mChangeBgRadius = getValue(mNomarlRadius, 0, mRadiusProgress);
 
-        //起点与背景圆圆心间的角度
+        //起点与起始圆圆心间的角度
         double m_Next_radian = Math.toRadians(getValue(45, 0, MOVE_STEP_ONE));
         float mX_next = (float) (Math.sin(m_Next_radian) * mChangeBgRadius);
         float mY_next = (float) (Math.cos(m_Next_radian) * mChangeBgRadius);
@@ -349,7 +349,7 @@ public class BezierBannerDot extends View implements ViewPager.OnPageChangeListe
         mCenterPointX = getValue(getCenterPointAt(mSelectedIndex), getCenterPointAt(mSelectedIndex - 1) + mRadius, MOVE_STEP_TWO);
         mCenterPointY = mRadius;
         mChangeRadius = getValue(mRadius, 0, mRadiusProgress);
-        //起点与选中圆圆心间的角度
+        //起点与起始圆圆心间的角度
         double radian = Math.toRadians(getValue(45, 0, MOVE_STEP_ONE));
         //X轴距离圆心距离
         float mX = (float) (Math.sin(radian) * mChangeRadius);
@@ -389,7 +389,7 @@ public class BezierBannerDot extends View implements ViewPager.OnPageChangeListe
         mbgNextPointX = getValue(getCenterPointAt(mSelectedIndex - 1), getCenterPointAt(mSelectedIndex) - mNomarlRadius, MOVE_STEP_TWO);
         mbgNextPointY = mRadius;
         mChangeBgRadius = getValue(mNomarlRadius, 0, mRadiusProgress);
-        //起点与选中圆圆心间的角度
+        //起点与起始圆圆心间的角度
         double m_Next_radian = Math.toRadians(getValue(45, 0, MOVE_STEP_ONE));
         //X轴距离圆心距离
         float mX_next = (float) (Math.sin(m_Next_radian) * mChangeBgRadius);

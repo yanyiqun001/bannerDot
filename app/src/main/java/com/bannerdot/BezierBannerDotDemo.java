@@ -22,13 +22,13 @@ public class BezierBannerDotDemo extends View {
     private Path mPath2 = new Path();
     //间隔距离
     private float distance = 80;
-    //被选中圆初始半径
+    //起始圆初始半径
     private float mRadius = 50;
-    //被选中圆变化半径
+    //起始圆变化半径
     private float mChangeRadius;
     //辅助圆变化半径
     private float mSupportChangeRadius;
-    //被选中圆圆心左边
+    //起始圆圆心左边
     float mCenterPointX;
     float mCenterPointY;
     //辅助圆圆心坐标
@@ -130,7 +130,7 @@ public class BezierBannerDotDemo extends View {
         canvas.drawCircle(mSupportCircleX, mSupportCircleY, mSupportChangeRadius, mCirclePaint);
         canvas.drawCircle(mCenterPointX, mCenterPointY, mChangeRadius, mCirclePaint);
         canvas.drawPath(mPath, mCirclePaint);
-
+        //标出贝塞尔点
         canvas.drawCircle(controlPointX,controlPointY,5,mPointPaint);
         canvas.drawCircle(mStartX,mStartY,5,mPointPaint);
         canvas.drawCircle(endPointX,endPointY,5,mPointPaint);
@@ -163,12 +163,12 @@ public class BezierBannerDotDemo extends View {
         mPath.reset();
         mPath2.reset();
         float mRadiusProgress = accelerateinterpolator.getInterpolation(mOriginProgress);
-        //选中圆圆心
+        //起始圆圆心
         mCenterPointX = getValue(getCenterPointAt(1),getCenterPointAt(2)-mRadius,MOVE_STEP_TWO);
         mCenterPointY = mRadius;
-        //选中圆半径
+        //起始圆半径
         mChangeRadius = getValue(mRadius,0,mRadiusProgress);
-        //起点与选中圆圆心间的角度
+        //起点与起始圆圆心间的角度
         double radian = Math.toRadians(getValue(45, 0,MOVE_STEP_ONE));
         //X轴距离圆心距离
         float mX = (float) (Math.sin(radian) * mChangeRadius);
@@ -212,7 +212,7 @@ public class BezierBannerDotDemo extends View {
         mPath.reset();
         mPath2.reset();
         float mRadiusProgress = accelerateinterpolator.getInterpolation(mOriginProgress);
-        //选中圆
+        //起始圆
         mCenterPointX = getValue(getCenterPointAt(2),getCenterPointAt(1)+mRadius,MOVE_STEP_TWO);
         mCenterPointY = mRadius;
         mChangeRadius = getValue(mRadius,0,mRadiusProgress);
