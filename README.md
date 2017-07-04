@@ -33,7 +33,7 @@
  
  selectedColor：选中圆颜色
  
- selectedColor：背景圆颜色 
+ unSelectedColor：背景圆颜色 
  
  spacing：间距
  
