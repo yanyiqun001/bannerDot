@@ -18,7 +18,7 @@ import static com.bannerdot.R.id.bd;
  */
 
 public class VpActivity extends AppCompatActivity {
-    BezierBannerDot bdView;
+    BezierBannerDot bezierBannerDot;
     private ViewPager viewPager;
     private MyPagerAdapter pagerAdapter;
     private int[] resource={R.drawable.a,R.drawable.b,R.drawable.c,R.drawable.d,R.drawable.e};
@@ -29,7 +29,7 @@ public class VpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vp);
         viewPager = (ViewPager) this.findViewById(R.id.vp);
-        bdView = (BezierBannerDot) this.findViewById(bd);
+        bezierBannerDot = (BezierBannerDot) this.findViewById(bd);
         for (int i = 0; i < resource.length ; i++) {
             ImageView imageView=new ImageView(VpActivity.this);
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -37,7 +37,7 @@ public class VpActivity extends AppCompatActivity {
         }
         pagerAdapter=new MyPagerAdapter();
         viewPager.setAdapter(pagerAdapter);
-        bdView.attachToViewpager(viewPager);
+        bezierBannerDot.attachToViewpager(viewPager);
     }
 
     private class MyPagerAdapter extends PagerAdapter {
