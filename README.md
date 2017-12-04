@@ -3,15 +3,29 @@
 
 ![image](https://github.com/yanyiqun001/bannerDot/blob/master/screenshots/ezgif.com-resize%20(2).gif?raw=true)
 
+### Usage
 
+Add the JitPack repository to your build file
 
+```
+allprojects {
+          repositories {
+              ...
+              maven { url "https://jitpack.io" }
+          }
+      }
+```
+ Add the dependency
+```
+  
+dependencies{
+    compile 'com.github.yanyiqun001:bannerDot:1.0'
+}
 
+```
+ 
 
- 可以拷贝 
-[源码](https://github.com/yanyiqun001/bannerDot/blob/master/app/src/main/java/com/bannerdot/BezierBannerDot.java)和
-[资源文件](https://github.com/yanyiqun001/bannerDot/blob/master/app/src/main/res/values/attr.xml)直接使用
-
-##### xml中(替换成自己的路径)：
+##### xml：
 ```
        <com.bannerdot.BezierBannerDot
         android:id="@+id/bd"
@@ -37,7 +51,7 @@
  
  spacing：间距
  
-##### 代码中绑定viewpager
+##### Attach to viewpager
 ```
 bezierBannerDot.attachToViewpager(viewPager)
 ```
