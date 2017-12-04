@@ -1,33 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.bannerdot.MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.bannerdot.MainActivity">
+
     <android.support.v4.view.ViewPager
         android:id="@+id/vp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </android.support.v4.view.ViewPager>
+        android:layout_height="match_parent"></android.support.v4.view.ViewPager>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:gravity="center">
-    <com.bannerdot.BezierBannerDot
-        android:id="@+id/bd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="20dp"
-        app:selectedRaduis="13dp"
-        app:unSelectedRaduis="10dp"
-        app:selectedColor="@android:color/white"
-        app:unSelectedColor="@android:color/darker_gray"
-        app:spacing="20dp"
-        android:layout_alignParentBottom="true"
-        />
+
+        <com.dotlibrary.BezierBannerDot
+            android:id="@+id/bd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:paddingBottom="20dp"
+            app:selectedColor="@android:color/white"
+            app:selectedRaduis="13dp"
+            app:spacing="20dp"
+            app:unSelectedColor="@android:color/darker_gray"
+            app:unSelectedRaduis="10dp" />
     </LinearLayout>
 </RelativeLayout>

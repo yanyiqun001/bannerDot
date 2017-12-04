@@ -1,4 +1,4 @@
-package com.bannerdot;
+package com.dotlibrary;
 
 import android.content.Context;
 import android.content.res.TypedArray;

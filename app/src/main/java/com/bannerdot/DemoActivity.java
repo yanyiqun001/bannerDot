@@ -6,8 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 
-import static com.bannerdot.BezierBannerDot.DIRECTION_LEFT;
-import static com.bannerdot.BezierBannerDot.DIRECTION_RIGHT;
+
 
 /**
  * Created by Administrator on 2017/7/3 0003.
@@ -18,6 +17,10 @@ public class DemoActivity extends AppCompatActivity {
     float mStartX;
     int TOUCH_MOVE_MAX = 700;
     float progress;
+    //向右滑 向左滚动
+    public static int DIRECTION_LEFT = 1;
+    //向左滑 向右滚动
+    public static int DIRECTION_RIGHT = 2;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
